@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExpanceDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CompanyMaster">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JoiningLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="0" />
+    <Property Name="LeavingDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_Income" Relationship="Self.FK__tbl_Incom__Compa__44FF419A" FromRole="CompanyMaster" ToRole="tbl_Income" />
+  </EntityType>
+  <EntityType Name="IncomeMaster">
+    <Key>
+      <PropertyRef Name="IncomeId" />
+    </Key>
+    <Property Name="IncomeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IncomeType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tbl_Income" Relationship="Self.FK__tbl_Incom__Incom__45F365D3" FromRole="IncomeMaster" ToRole="tbl_Income" />
+  </EntityType>
+  <EntityType Name="tbl_Income">
+    <Key>
+      <PropertyRef Name="IncomeGuid" />
+    </Key>
+    <Property Name="IncomeGuid" Type="Guid" Nullable="false" />
+    <Property Name="IncomeAmount" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="IncomeDate" Type="DateTime" Precision="0" />
+    <Property Name="Company_Id" Type="Int32" />
+    <Property Name="Income_ID" Type="Int32" />
+    <NavigationProperty Name="CompanyMaster" Relationship="Self.FK__tbl_Incom__Compa__44FF419A" FromRole="tbl_Income" ToRole="CompanyMaster" />
+    <NavigationProperty Name="IncomeMaster" Relationship="Self.FK__tbl_Incom__Incom__45F365D3" FromRole="tbl_Income" ToRole="IncomeMaster" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__tbl_Incom__Compa__44FF419A">
+    <End Role="CompanyMaster" Type="Self.CompanyMaster" Multiplicity="0..1" />
+    <End Role="tbl_Income" Type="Self.tbl_Income" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyMaster">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="tbl_Income">
+        <PropertyRef Name="Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Incom__Incom__45F365D3">
+    <End Role="IncomeMaster" Type="Self.IncomeMaster" Multiplicity="0..1" />
+    <End Role="tbl_Income" Type="Self.tbl_Income" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IncomeMaster">
+        <PropertyRef Name="IncomeId" />
+      </Principal>
+      <Dependent Role="tbl_Income">
+        <PropertyRef Name="Income_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ExpanceDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CompanyMasters" EntityType="Self.CompanyMaster" />
+    <EntitySet Name="IncomeMasters" EntityType="Self.IncomeMaster" />
+    <EntitySet Name="tbl_Income" EntityType="Self.tbl_Income" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+    <AssociationSet Name="FK__tbl_Incom__Compa__44FF419A" Association="Self.FK__tbl_Incom__Compa__44FF419A">
+      <End Role="CompanyMaster" EntitySet="CompanyMasters" />
+      <End Role="tbl_Income" EntitySet="tbl_Income" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Incom__Incom__45F365D3" Association="Self.FK__tbl_Incom__Incom__45F365D3">
+      <End Role="IncomeMaster" EntitySet="IncomeMasters" />
+      <End Role="tbl_Income" EntitySet="tbl_Income" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

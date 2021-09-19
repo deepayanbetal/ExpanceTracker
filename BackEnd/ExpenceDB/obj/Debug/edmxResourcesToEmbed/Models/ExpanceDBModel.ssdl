@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExpanceDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CompanyMaster">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+    <Property Name="JoiningLocation" Type="nvarchar" MaxLength="50" />
+    <Property Name="JoiningDate" Type="date" />
+    <Property Name="LeavingDate" Type="date" />
+  </EntityType>
+  <EntityType Name="IncomeMaster">
+    <Key>
+      <PropertyRef Name="IncomeId" />
+    </Key>
+    <Property Name="IncomeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IncomeType" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Income">
+    <Key>
+      <PropertyRef Name="IncomeGuid" />
+    </Key>
+    <Property Name="IncomeGuid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IncomeAmount" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="IncomeDate" Type="date" />
+    <Property Name="Company_Id" Type="int" />
+    <Property Name="Income_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="100" />
+    <Property Name="lastname" Type="varchar" MaxLength="100" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__tbl_Incom__Compa__44FF419A">
+    <End Role="CompanyMaster" Type="Self.CompanyMaster" Multiplicity="0..1" />
+    <End Role="tbl_Income" Type="Self.tbl_Income" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyMaster">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="tbl_Income">
+        <PropertyRef Name="Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Incom__Incom__45F365D3">
+    <End Role="IncomeMaster" Type="Self.IncomeMaster" Multiplicity="0..1" />
+    <End Role="tbl_Income" Type="Self.tbl_Income" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IncomeMaster">
+        <PropertyRef Name="IncomeId" />
+      </Principal>
+      <Dependent Role="tbl_Income">
+        <PropertyRef Name="Income_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ExpanceDBModelStoreContainer">
+    <EntitySet Name="CompanyMaster" EntityType="Self.CompanyMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncomeMaster" EntityType="Self.IncomeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Income" EntityType="Self.tbl_Income" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_Incom__Compa__44FF419A" Association="Self.FK__tbl_Incom__Compa__44FF419A">
+      <End Role="CompanyMaster" EntitySet="CompanyMaster" />
+      <End Role="tbl_Income" EntitySet="tbl_Income" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Incom__Incom__45F365D3" Association="Self.FK__tbl_Incom__Incom__45F365D3">
+      <End Role="IncomeMaster" EntitySet="IncomeMaster" />
+      <End Role="tbl_Income" EntitySet="tbl_Income" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
