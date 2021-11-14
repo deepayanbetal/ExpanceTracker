@@ -1,0 +1,14 @@
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\bin\Release\DAL.dll.config
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\bin\Release\DAL.dll
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\bin\Release\DAL.pdb
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\bin\Release\EntityFramework.dll
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\bin\Release\EntityFramework.SqlServer.dll
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\bin\Release\EntityFramework.xml
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\bin\Release\EntityFramework.SqlServer.xml
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.Migrations.firstdbmigration.resources
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.csproj.GenerateResource.cache
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.csproj.CopyComplete
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.dll
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.pdb

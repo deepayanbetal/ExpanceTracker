@@ -1,16 +1,18 @@
 
+
+
 <!-- Trigger the modal with a button -->
 
 <div class="container text-center" style="margin-top: 35%;">
   <h5>Expanse Tracker</h5>
-  <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#LoginModal">LogIn</button>
+  <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#LoginModal" data-bs-backdrop="false">LogIn</button>
   <br>
   <a data-bs-toggle="modal" data-bs-target="#SignUpModal">Sign Up</a>
 </div>
 
 
 <!-- LoginModal -->
-<div id="LoginModal" class="modal fade" role="dialog">
+<div id="LoginModal" class="modal fade" role="dialog" *ngIf ="!modalpopup">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -37,7 +39,7 @@
                     
   
                     <div class="mt-2 col-sm-8">
-                      <input type="text" class="form-control" formControlName="email" >
+                      <input type="text" class="form-control" formControlName="loginId" >
                     </div>
                   </div>
                   
@@ -54,7 +56,7 @@
 
 
                   <div class="mt-2 col-md-12">
-                    <button type="submit" class="btn btn-primary float-md-end">Submit</button>
+                    <button type="submit" class="btn btn-primary float-md-end" data-bs-dismiss="modal">Submit</button>
                   </div>
                   <br>
 
@@ -74,7 +76,7 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="onClose()">Close</button>
       </div>
     </div>
 
@@ -133,7 +135,7 @@
                     
   
                     <div class="mt-2 col-sm-8">
-                      <input type="text" class="form-control" formControlName="email" >
+                      <input type="text" class="form-control" formControlName="useremail" >
                     </div>
                   </div>
                   
@@ -144,12 +146,12 @@
                     
   
                     <div class="mt-2 col-sm-8">
-                      <input type="text" class="form-control" formControlName="password" >
+                      <input type="text" class="form-control" formControlName="userpassword" >
                     </div>
                   </div>
 
                   <div class="mt-2 col-md-12">
-                    <button type="submit" class="btn btn-primary float-md-end">Submit</button>
+                    <button type="submit" class="btn btn-primary float-md-end" data-bs-dismiss="modal">Submit</button>
                   </div>
 
 
@@ -177,3 +179,15 @@
 
   </div>
 </div>
+
+
+
+<!-- <script type="text/javascript">  
+  function showModal(){
+  $('#modal').modal('show');
+  $(".modal-backdrop.in").hide();
+  }
+  $(window).load(function(){
+         showModal();
+    });
+</script> -->

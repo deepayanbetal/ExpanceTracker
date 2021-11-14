@@ -1,0 +1,65 @@
+<!-- <p>expancerecord works!</p> -->
+<div class="container-fluid"> 
+<form [formGroup]="expanceRecordform">
+
+    
+
+
+    <div class="form-grop">
+        <div class="row">
+            <div class="col-sm-2">
+              <label>Date</label>
+            </div>
+            
+  
+            <div class="mt-2 col-sm-4" >
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" class="form-control" formControlName="expancedate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+              <!-- <input type="text"  class="form-control" formControlName="expancedate" > -->
+              
+            </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-2">
+            <label>Expance Item</label>
+          </div>
+          
+
+          <div class="mt-2 col-sm-4">
+            <input type="text" class="form-control" formControlName="expanceItem" >
+          </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-2">
+              <label>Expance Amount</label>
+            </div>
+            
+  
+            <div class="mt-2 col-sm-4">
+              <input type="text" class="form-control" formControlName="expanceAmount" >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Expance Amount</label>
+            </div>
+            
+  
+            <div class="mt-2 col-sm-4">
+              <input type="text" class="form-control" formControlName="expanceAmount" >
+            </div>
+          </div>
+          
+    </div>
+
+</form>
+</div>

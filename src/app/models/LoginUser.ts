@@ -1,6 +1,6 @@
 export class LoginUser{
 
    // UserName : string;
-    email : string;
+    loginId : string;
     password : string;
 }

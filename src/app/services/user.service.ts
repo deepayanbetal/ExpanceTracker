@@ -29,7 +29,7 @@ export class UserService
     loginUser(loginuser: LoginUser)    {
         
         const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
-        console.log(loginuser.email);
+        console.log(loginuser.loginId);
         return this.http.post<any>(this.url+'/login',loginuser,httpOptions);
     }
 
