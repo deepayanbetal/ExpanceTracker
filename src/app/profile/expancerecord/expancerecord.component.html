@@ -1,6 +1,6 @@
 <!-- <p>expancerecord works!</p> -->
 <div class="container-fluid"> 
-<form [formGroup]="expanceRecordform">
+<form [formGroup]="expanceRecordform" (ngSubmit)="onExpanceRecordSubmit(expanceRecordform.value)">
 
     
 
@@ -39,26 +39,52 @@
 
         <div class="row">
             <div class="col-sm-2">
-              <label>Expance Amount</label>
+              <label>Price</label>
             </div>
             
   
             <div class="mt-2 col-sm-4">
-              <input type="text" class="form-control" formControlName="expanceAmount" >
+              <input type="text" class="form-control" formControlName="Price" >
             </div>
           </div>
 
           <div class="row">
             <div class="col-sm-2">
-              <label>Expance Amount</label>
+              <label>Price Breakup</label>
             </div>
             
   
             <div class="mt-2 col-sm-4">
-              <input type="text" class="form-control" formControlName="expanceAmount" >
+              <input type="text" class="form-control" formControlName="priceBreakUp" >
             </div>
           </div>
-          
+
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Payment Method</label>
+            </div>
+            
+  
+            <div class="mt-2 col-sm-4">
+              <input type="text" class="form-control" formControlName="paymentMethod" >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Cashback</label>
+            </div>
+            
+  
+            <div class="mt-2 col-sm-4">
+              <input type="text" class="form-control" formControlName="cashBack" >
+            </div>
+          </div>
+          <div class="mt-2 col-md-12">
+            <button type="submit" class="btn btn-primary float-md-left" data-bs-dismiss="modal">Submit</button>
+          </div>
+
+
     </div>
 
 </form>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ExpanceDetails } from 'src/app/models/ExpanceDetails';
+import { UserService } from 'src/app/services/user.service';
+
+
 
 @Component({
   selector: 'app-expancerecord',
@@ -8,8 +12,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ExpancerecordComponent implements OnInit {
 
-  expanceRecordform:any
-  constructor(public formbuilder: FormBuilder) { }
+  expanceRecordform:any;
+  message : string;
+  constructor(public formbuilder: FormBuilder,public userService :UserService) { }
 
   ngOnInit() {
 
@@ -17,10 +22,30 @@ export class ExpancerecordComponent implements OnInit {
 
       expancedate:[''],
       expanceItem: ['', Validators.required],
-      expanceAmount: ['']
+      Price: [''],
+      priceBreakUp:[''],
+      paymentMethod:[''],
+      cashBack:['']
       
 
     })
   }
+  onExpanceRecordSubmit(){
+    console.log(this.userService.url);
+    const expanceVal = this.expanceRecordform.value;
+    console.log(expanceVal);
+    this.expanceDataSave(expanceVal);
+  }
 
+  expanceDataSave(expanceDetails:ExpanceDetails){
+
+    this.userService.expanceData(expanceDetails).subscribe(
+      ()=>{
+          this.message="saved";
+          console.log(this.message);
+          console.log(this.userService.url);
+      }
+    )
+
+  }
 }

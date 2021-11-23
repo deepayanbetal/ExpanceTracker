@@ -12,3 +12,5 @@ G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.csproj.CoreCompile
 G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.csproj.CopyComplete
 G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.dll
 G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.pdb
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.Migrations.tbl_ExpanceDataMigration.resources
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Release\DAL.Migrations.decimalAdded.resources

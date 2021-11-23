@@ -23,6 +23,15 @@ namespace DAL
 
      public virtual DbSet<tbl_Email> tbl_Emails { get; set; }
     public virtual DbSet<tbl_Users> tbl_User { get; set; }
+    public virtual DbSet<tbl_ExpanceData> tbl_ExpanceDatas { get; set; }
+
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+      modelBuilder.Properties<decimal>().Configure(c => c.HasPrecision(18, 3));
+      Database.SetInitializer<ExpanceDBModel>(null);
+      base.OnModelCreating(modelBuilder);
+    }
   }
 
   

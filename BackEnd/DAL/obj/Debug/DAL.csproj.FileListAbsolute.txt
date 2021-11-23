@@ -12,3 +12,5 @@ G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Debug\DAL.dll
 G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Debug\DAL.pdb
 G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Debug\DAL.Migrations.firstdbmigration.resources
 G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Debug\DAL.Migrations.tbl_ExpanceDataMigration.resources
+G:\AngularProjects\ExpanceTracker\BackEnd\DAL\obj\Debug\DAL.Migrations.decimalAdded.resources

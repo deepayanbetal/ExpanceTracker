@@ -17,10 +17,10 @@ using System.Web.Http;
 
 namespace ExpenceDB.Controllers
 {
-    [RoutePrefix("api/User")]
-    public class AccountController : ApiController
-    {
-        public readonly ExpanceDBModel expanceDBEntities = new ExpanceDBModel();
+  [RoutePrefix("api/User")]
+  public class AccountController : ApiController
+  {
+    public readonly ExpanceDBModel expanceDBEntities = new ExpanceDBModel();
 
     [HttpGet]
     [Route("GetUser")]
@@ -48,36 +48,46 @@ namespace ExpenceDB.Controllers
 
     //}
 
-    [HttpPost,Route("login")]
-        public IHttpActionResult userLogin(Login user)
+    [HttpPost, Route("login")]
+    public IHttpActionResult userLogin(Login user)
+    {
+      var tokenString = String.Empty;
+      using (expanceDBEntities)
+      {
+
+        try
         {
-            using (expanceDBEntities)
-            {
-                var pass = expanceDBEntities.tbl_User.Where(u => ( u.UserPassword == user.password && u.UserEmail == user.loginID || u.UserID == user.loginID)).FirstOrDefault();
-                if(pass!=null)
-                {
-                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
-                    var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-                    var tokeOptions = new JwtSecurityToken(
-                        //issuer: "http://localhost:64376",
-                        issuer:" http://192.168.0.5:6012/",
-                        audience: "http://localhost:4200",
-                        claims: new List<Claim>(),
-                        expires: DateTime.Now.AddMinutes(5),
-                        signingCredentials: signinCredentials
-                    );
-                    var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-                    return Ok(new { Token = tokenString });
-                }
-                else
-                {
-                    return Unauthorized();
-                   // return BadRequest("Invalid client request");
-                }
-                    
-            }
-                
+          var pass = expanceDBEntities.tbl_User.Where(u => (u.UserPassword == user.password && u.UserEmail == user.loginID || u.UserID == user.loginID)).FirstOrDefault();
+          if (pass != null)
+          {
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
+            var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var tokeOptions = new JwtSecurityToken(
+                issuer: "http://localhost:64376",
+                //issuer:" http://192.168.0.5:6012/",
+                audience: "http://localhost:4200",
+                claims: new List<Claim>(),
+                expires: DateTime.Now.AddMinutes(5),
+                signingCredentials: signinCredentials
+            );
+            tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+          }
+          else
+          {
+            return Unauthorized();
+            // return BadRequest("Invalid client request");
+          }
         }
+        catch (Exception ex)
+        {
+
+        }
+
+        
+        return Ok(new { Token = tokenString });
+      }
+
+    }
 
 
 

@@ -55,8 +55,17 @@
     <Compile Include="Migrations\202110161415146_firstdbmigration.Designer.cs">
       <DependentUpon>202110161415146_firstdbmigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111181605545_tbl_ExpanceDataMigration.cs" />
+    <Compile Include="Migrations\202111181605545_tbl_ExpanceDataMigration.Designer.cs">
+      <DependentUpon>202111181605545_tbl_ExpanceDataMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111190802162_decimalAdded.cs" />
+    <Compile Include="Migrations\202111190802162_decimalAdded.Designer.cs">
+      <DependentUpon>202111190802162_decimalAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\tbl_Email.cs" />
+    <Compile Include="Model\tbl_ExpanceData.cs" />
     <Compile Include="Model\tbl_Salary.cs" />
     <Compile Include="Model\tbl_Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +77,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202110161415146_firstdbmigration.resx">
       <DependentUpon>202110161415146_firstdbmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111181605545_tbl_ExpanceDataMigration.resx">
+      <DependentUpon>202111181605545_tbl_ExpanceDataMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111190802162_decimalAdded.resx">
+      <DependentUpon>202111190802162_decimalAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

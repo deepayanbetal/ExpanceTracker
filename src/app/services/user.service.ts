@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from "../models/User";
 import { Observable } from "rxjs";
 import { LoginUser } from "../models/LoginUser";
+import{ExpanceDetails} from "../models/ExpanceDetails";
 
 
 @Injectable({
@@ -14,6 +15,7 @@ import { LoginUser } from "../models/LoginUser";
 export class UserService
 {
     url= Constants.apiUrl+"User";
+    expanceUrl= Constants.apiUrl+"Expance";
 
     constructor(public http :HttpClient)
     {
@@ -31,6 +33,12 @@ export class UserService
         const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
         console.log(loginuser.loginId);
         return this.http.post<any>(this.url+'/login',loginuser,httpOptions);
+    }
+
+    expanceData(expanceData : ExpanceDetails){
+        const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
+        //console.log(loginuser.loginId);
+        return this.http.post<any>(this.expanceUrl+'/InsertExpance',expanceData,httpOptions);
     }
 
     
