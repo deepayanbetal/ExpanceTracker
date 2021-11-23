@@ -1,0 +1,26 @@
+git status -- checking status
+git remote add origin "url" -- for connecting the repo.
+git pull origin master-- pull the files from the git.
+git add filename -- for adding file in git local repo. It is use for single file
+git commit -m "msg" -- for commit the file in local repo.
+git add -A -- is used to add multiple file in repo.
+git commit -a -m "msg" -- use to commit multiple file.
+git log -- use for activity details checking.
+git branch branchname -- for creating new branch.
+git checkout branchname -- for swithching branch.
+git merge branchname -- always it need to merge with master branch. And need to always checkout in master branch before merging.
+git push -u origin master --
+git branch -- use for checking local branches
+git branch -a -- use for check remote branches
+for ignoring some file or folder just create .gitignore file and write the folder or file name and save it.
+
+
+ git config --global user.email -- use for knowing logging email id.
+ git config --global user.name -- use to know logged name.
+git init -- use for start git and it create .git folder
+git add -A -- for send all files under tracking.
+git checkout -- for undo modified changes.
+git checkout -f -- for undo modified changes for ll files.
+git log --shows all changes of files.
+git log -p -1 -- shows  changes in 1 file.
+
